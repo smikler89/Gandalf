@@ -1,0 +1,36 @@
+syntax = "proto2";
+
+package Gandalf;
+
+enum EEventType {
+    None = 0;
+    // ProductId
+    Product_Visit    = 1;
+    Product_Add      = 2;
+    Product_Purchase = 3;
+    // CategoryId
+    CategoryPage_Visit       = 100;
+    ProductCategory_View     = 101;
+    ProductCategory_Add      = 102;
+    ProductCategory_Purchase = 103;
+    // BrandId
+    BrandPage_Visit       = 200;
+    ProductBrand_View     = 201;
+    ProductBrand_Add      = 202;
+    ProductBrand_Purchase = 203;
+};
+
+message TEvent {
+    required uint32 Timestamp = 1;
+    required float  Weight1   = 2;
+    required float  Weight2   = 3;
+};
+
+message TEvents {
+    map<uint64,TEvent> Events = 1;
+};
+
+message TUserProfile {
+    // {EventType -> {Id -> Event}}
+    map<uint32, TEvents> Events = 1; // key is uint32(EEventType)
+};
