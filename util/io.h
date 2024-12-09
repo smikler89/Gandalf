@@ -37,6 +37,7 @@ namespace Gandalf {
             if (!google::protobuf::util::MessageToJsonString(in, &res, opts).ok()) {
                 // it's ok
             }
+            
             return res;
         }
 

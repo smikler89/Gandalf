@@ -68,7 +68,7 @@ namespace Gandalf {
                 return res;
             } else {
                 std::cerr << "TFileBasedProfileManager creating new profile [" << userId << "] ..." << std::endl;
-                return nullptr;
+                return std::make_shared<Gandalf::TUserProfile>();
             }
         }
 

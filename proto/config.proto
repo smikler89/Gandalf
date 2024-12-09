@@ -3,7 +3,7 @@ syntax = "proto2";
 package Gandalf;
 
 message TConfig {
-    optional uint32 TooLongAgo = 1 [default = 1209600]; // 14 days
+    optional uint32 MaxItemAge = 1 [default = 1209600]; // 14 days
     optional uint32 MaxItemsPerEventType = 2 [default = 80];
     optional float Alpha1 = 3 [default = -0.00000115]; // 1 week decay
     optional float Alpha2 = 4 [default = -0.00000802]; // 1 day decay

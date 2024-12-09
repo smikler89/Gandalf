@@ -9,10 +9,18 @@ namespace Gandalf {
     namespace Util {
 
         struct TSingleEvent {
-            Gandalf::EEventType EventType;
+            EEventType EventType;
             uint64_t ItemId;
-            uint32_t Timestamp = std::time(0);
-            float Value = 1.0;
+            uint32_t Timestamp;
+            float Value;
+
+            TSingleEvent(EEventType et = EEventType::None, uint64_t iid = 0, uint32_t ts = std::time(0), float v = 1.0)
+                : EventType(et)
+                , ItemId(iid)
+                , Timestamp(ts)
+                , Value(v)
+            {
+            }
         };
 
         void MergeSingleEvent(Gandalf::TUserProfile& toProfile, const TSingleEvent& event, const Gandalf::TConfig& config);
